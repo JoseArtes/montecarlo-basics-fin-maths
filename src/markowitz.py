@@ -10,6 +10,33 @@ class Markowitz:
         self.n_stocks = self.df_returns.shape[1]
         self.mu_p = self.df_returns.mean() * 252
         self.cov = self.df_returns.cov() * 252
+    """
+    A class to calculate the Minimum Variance portfolio and Maximum Sharpe ratio via 
+    the Monte Carlo method and numerical approximation (SLSQP)
+
+    Attributes
+    ----------
+    df_returns : pd.DataFrame
+        Data frame of stock returns.
+
+    Methods
+    -------
+    portfolio_returns()
+        Computes the portfolio returns.
+
+    portfolio stdev():
+        Computes the portfolio standard deviation.
+
+    sharpe ratio():
+        Computes the Sharpe ratio of the portfolio.
+
+    simulate_portfolios():
+        Performs Monte Carlo simulation for portfolio creation.
+
+    optimal_portfolio():
+        Applies numerical optimisation via the SLSQP method to find out the optimal
+        portfolio either based on minimum-variance or maximum Sharpe ratio.
+    """
 
     def portfolio_returns(self, w):
         return w @ self.mu_p

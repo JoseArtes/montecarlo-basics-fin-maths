@@ -10,6 +10,21 @@ class OptionPricing:
         self.sigma = sigma
         self.T = T
 
+    def set_S0(self, S0):
+        self.S0 = S0
+
+    def set_K(self, K):
+        self.K = K
+
+    def set_r(self, r):
+        self.r = r
+
+    def set_sigma(self, sigma):
+        self.sigma = sigma
+
+    def set_T(self, T):
+        self.T = T
+
     def bs_call_price(self):
         d1 = (np.log(self.S0 / self.K) + (self.r + (self.sigma**2)/2) * self.T) / self.sigma * np.sqrt(self.T)
         d2 = d1 - self.sigma * np.sqrt(self.T)
@@ -32,4 +47,4 @@ class OptionPricing:
                 S_T *= np.exp((self.r - (self.sigma**2 / 2))*dt + self.sigma * phi * np.sqrt(dt))
             payoff_sum += max(S_T-self.K, 0)
         self.mc_c = np.exp(-self.r * self.T) * (payoff_sum / n_sims)
-        return self.mc
+        return self.mc_c
