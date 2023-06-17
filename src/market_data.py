@@ -100,17 +100,17 @@ class MarketData:
         return self.df_trans
     
 if __name__ == "__main__":
-    # Define tickers for Nvidia, Johnson&Johnson, Procter&Gamble, and JPMorgan.
+    # Define tickers for Nvidia, Johnson&Johnson, Procter&Gamble, and JPMorgan
     symbols = "NVDA,AAPL,TSLA,MSFT"
-    # Capture one-year worth of data.
+    # Capture one-year worth of data
     date_from = "2022-06-02" 
     date_to = "2023-06-02"
-    # Instantiate object from MarketData class.
+    # Instantiate object from MarketData class
     md = MarketData(symbols, date_from, date_to)
     # Retrieve raw data.
     df_raw = md.raw_data()
-    # Retrieve transformed log-return data.
+    # Retrieve transformed log-return data
     df_trans = md.transform_data()
-    # Save both datasets as .csv's for later use.
+    # Save both datasets as .csv's for later use
     df_raw.to_csv("./stocks_raw.csv", index=False)
     df_trans.to_csv("./stocks_returns.csv")
