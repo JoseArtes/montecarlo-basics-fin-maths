@@ -12,11 +12,11 @@ class Markowitz:
     Attributes
     ----------
     df_returns : pd.DataFrame
-        Data frame of stock returns.
+        Dataframe of stock returns.
 
     Methods
     -------
-    _portfolio_returns()
+    _portfolio_returns():
         Computes the portfolio returns.
 
     _portfolio stdev():
