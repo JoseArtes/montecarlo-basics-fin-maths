@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 class Markowitz:
     """
     A class to calculate the Minimum Variance portfolio and Maximum Sharpe ratio via
-    the Monte Carlo method and numerical approximation (SLSQP)
+    the Monte C arlo method and numerical approximation (SLSQP)
 
     Attributes
     ----------
@@ -36,6 +36,7 @@ class Markowitz:
     def __init__(self, df_returns):
         self.df_returns = df_returns
         self.n_stocks = self.df_returns.shape[1]
+        # Multiply by the number of trading days in a year to annualise portfolio mean and standard deviation.
         self.mu_p = self.df_returns.mean() * 252
         self.cov = self.df_returns.cov() * 252
 
